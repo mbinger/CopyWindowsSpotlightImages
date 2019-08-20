@@ -6,8 +6,9 @@ Foreach-Object {
 	$sourceFileName = $_.FullName
 	$fileName = Split-Path $sourceFileName -leaf
 	$destinationFileName = (Join-Path $currentPath $fileName) + ".jpg"
+	$destinationBadFileName = (Join-Path $currentPath "bad" | Join-Path -childpath $fileName) + ".jpg"
 
-	if (![System.IO.File]::Exists($destinationFileName)) {
+	if (![System.IO.File]::Exists($destinationFileName) -and ![System.IO.File]::Exists($destinationBadFileName)) {
 		$img = [System.Drawing.Image]::FromFile($sourceFileName)
 		$width = $img.Width
 		$height = $img.Height
