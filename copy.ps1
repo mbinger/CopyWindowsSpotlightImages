@@ -1,11 +1,20 @@
 [void][System.Reflection.Assembly]::LoadWithPartialName("System.Drawing")
 $currentPath = Get-Location
+$destinationPath = $currentPath
+
+$configPath = Join-Path $currentPath "config.json"
+
+$config = Get-Content $configPath -Raw | ConvertFrom-Json
+if ($config -and $config.outputPath) {
+	$destinationPath = $config.outputPath
+}
+
 $cdmPath = Join-Path $HOME "appdata\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets"
 Get-ChildItem $cdmPath | 
 Foreach-Object {
 	$sourceFileName = $_.FullName
 	$fileName = Split-Path $sourceFileName -leaf
-	$destinationFileName = (Join-Path $currentPath $fileName) + ".jpg"
+	$destinationFileName = (Join-Path $destinationPath $fileName) + ".jpg"
 	$destinationBadFileName = (Join-Path $currentPath "bad" | Join-Path -childpath $fileName) + ".jpg"
 
 	if (![System.IO.File]::Exists($destinationFileName) -and ![System.IO.File]::Exists($destinationBadFileName)) {

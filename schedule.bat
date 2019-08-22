@@ -1,6 +1,6 @@
 @echo off
 
-set silent_vbs_filename=!silent.vbs
+set silent_vbs_filename=silent.vbs
 set vbs_launcher=wscript.exe
 set task_scheduler=schtasks.exe
 set mypath=%~dp0

@@ -4,7 +4,7 @@ Set objShell=CreateObject("WScript.Shell")
 Set objFSO=CreateObject("Scripting.FileSystemObject")
 
 'enter the path for your PowerShell Script
- strPath="!copy.ps1"
+ strPath="copy.ps1"
 
 'verify file exists
  If objFSO.FileExists(strPath) Then
