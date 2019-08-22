@@ -48,7 +48,7 @@ echo Write out task XML definition "%task_xml_path%"
 >%task_xml_path% echo ^<?xml version="1.0"?^>
 >>%task_xml_path% echo ^<Task version="1.2" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task"^>
 >>%task_xml_path% echo   ^<RegistrationInfo^>
->>%task_xml_path% echo     ^<Date^>%year%-%month%-%day%T%hour%:%minute%:00^</Date^>
+>>%task_xml_path% echo     ^<Date^>%year%-%month%-%day%T09:00:00^</Date^>
 >>%task_xml_path% echo     ^<Author^>%user_name%^</Author^>
 >>%task_xml_path% echo     ^<URI^>\%task_name%^</URI^>
 >>%task_xml_path% echo   ^</RegistrationInfo^>
