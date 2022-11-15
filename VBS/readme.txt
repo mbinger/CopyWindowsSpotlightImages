@@ -1,4 +1,4 @@
-Copy Windows spotlight images
+Copy Windows spotlight images - VBS edition
 1) Create some target directory like c:\!images
 2) Copy files copy.ps1, schedule.bat, silent.vbs and config.json to the c:\!images
 3) Write images destination path to the config.json like "outputPath": "c:\\Users\\MyUser\\YandexDisk\\wallpapers" or leave the file default to use current execution directory as output path
